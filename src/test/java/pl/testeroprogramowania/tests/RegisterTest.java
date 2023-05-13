@@ -6,7 +6,9 @@ public class RegisterTest extends BaseTest {
 
     @Test
     public void registerUserTest() {
-        new HomePage(driver).openMyAccountPage();
+        new HomePage(driver).openMyAccountPage()
+                .registerUser("test@test.pl", "test@test.pl");
+
     }
 
 }
