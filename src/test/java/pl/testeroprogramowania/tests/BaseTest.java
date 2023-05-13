@@ -5,6 +5,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 import pl.testeroprogramowania.utils.DriverFactory;
 
+import java.util.concurrent.TimeUnit;
+
 public class BaseTest {
 
      protected WebDriver driver;
@@ -12,10 +14,12 @@ public class BaseTest {
     @BeforeTest
     public void setup() {
         driver = DriverFactory.getDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get("http://seleniumdemo.com/");
     }
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+//        driver.quit();
     }
 }

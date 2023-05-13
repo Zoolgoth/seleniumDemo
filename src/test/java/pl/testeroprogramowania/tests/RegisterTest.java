@@ -6,7 +6,7 @@ public class RegisterTest extends BaseTest {
 
     @Test
     public void registerUserTest() {
-        System.out.println("Mock");
+        new HomePage(driver).openMyAccountPage();
     }
 
 }
