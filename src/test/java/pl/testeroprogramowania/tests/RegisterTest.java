@@ -8,11 +8,12 @@ public class RegisterTest extends BaseTest {
 
     @Test
     public void registerUserTest() {
-        WebElement entryTitle = new HomePage(driver).openMyAccountPage()
-                .registerUser("test612@test.pl", "test612@test.pl").getEntryTitle();
+        int random = (int) (Math.random()*1000);
 
-        Assert.assertTrue(entryTitle.isDisplayed());
-        Assert.assertEquals(entryTitle.getText(), "My account");
+        WebElement dashBoardLink = new HomePage(driver).openMyAccountPage()
+                .registerUser("test"+random+"@wp.pl", "test56@wp.pl").getDashBoardLink();
+
+        Assert.assertEquals(dashBoardLink.getText(), "DashBoard");
 
 
     }

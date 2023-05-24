@@ -7,8 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoggedUserPage {
 
-    @FindBy(xpath = "//h1[@class='entry-title']")
-    private WebElement entryTitle;
+    @FindBy(linkText = "Dashboard")
+    private WebElement dashBoardLink;
 
     private WebDriver driver;
 
@@ -17,8 +17,8 @@ public class LoggedUserPage {
         this.driver = driver;
     }
 
-    public WebElement getEntryTitle() {
-        return entryTitle;
+    public WebElement getDashBoardLink() {
+        return dashBoardLink;
     }
 
 
