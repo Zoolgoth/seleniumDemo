@@ -10,6 +10,9 @@ public class LoggedUserPage {
     @FindBy(linkText = "Dashboard")
     private WebElement dashBoardLink;
 
+    @FindBy(xpath = "//ul[@class='woocommerce-error']//li")
+    private WebElement errors;
+
     private WebDriver driver;
 
     public LoggedUserPage(WebDriver driver) {
@@ -19,6 +22,10 @@ public class LoggedUserPage {
 
     public WebElement getDashBoardLink() {
         return dashBoardLink;
+    }
+
+    public WebElement getError() {
+        return errors;
     }
 
 
