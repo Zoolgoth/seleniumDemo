@@ -1,6 +1,5 @@
 package pl.testeroprogramowania.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +16,18 @@ public class MyAccountPage {
     @FindBy(name="register")
     private WebElement registerButton;
 
+    @FindBy(id="username")
+    private WebElement usernameInput;
+
+    @FindBy(id="password")
+    private WebElement passwordInput;
+
+    @FindBy(name="login")
+    private WebElement logginbutton;
+
+    @FindBy(xpath = "//ul[@class='woocommerce-error']//li")
+    private WebElement error;
+
     private WebDriver driver;
 
     public MyAccountPage(WebDriver driver) {
@@ -26,12 +37,40 @@ public class MyAccountPage {
 
     }
 
-    public LoggedUserPage registerUser (String email, String password){
+    public LoggedUserPage registerUserValidData (String email, String password){
+        registerUser(email, password);
+        return new LoggedUserPage(driver);
+    }
+
+    public MyAccountPage registerUserInvalidData (String email, String password){
+        registerUser(email, password);
+        return this;
+    }
+
+    private void registerUser(String email, String password) {
         regEmailInput.sendKeys(email);
         regPasswordInput.sendKeys(password);
         registerButton.click();
-        return new LoggedUserPage(driver);
+    }
 
+    public LoggedUserPage logInValidData (String username, String password) {
+        logIn(username,password);
+        return new LoggedUserPage(driver);
+    }
+
+    public MyAccountPage logInInvalidData (String username, String password) {
+        logIn(username, password);
+        return this;
+    }
+
+    private void logIn(String username, String password) {
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
+        logginbutton.click();
+    }
+
+    public WebElement getError() {
+        return error;
     }
 
 }

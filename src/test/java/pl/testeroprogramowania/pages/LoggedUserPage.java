@@ -8,10 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LoggedUserPage {
 
     @FindBy(linkText = "Dashboard")
-    private WebElement dashBoardLink;
-
-    @FindBy(xpath = "//ul[@class='woocommerce-error']//li")
-    private WebElement errors;
+    private WebElement dashboardLink;
 
     private WebDriver driver;
 
@@ -20,14 +17,9 @@ public class LoggedUserPage {
         this.driver = driver;
     }
 
-    public WebElement getDashBoardLink() {
-        return dashBoardLink;
+    public WebElement getDashboardLink() {
+        return dashboardLink;
     }
-
-    public WebElement getError() {
-        return errors;
-    }
-
 
 
 }
