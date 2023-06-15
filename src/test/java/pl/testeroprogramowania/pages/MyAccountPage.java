@@ -10,19 +10,19 @@ public class MyAccountPage {
     @FindBy(id = "reg_email")
     private WebElement regEmailInput;
 
-    @FindBy(id="reg_password")
-    private  WebElement regPasswordInput;
+    @FindBy(id = "reg_password")
+    private WebElement regPasswordInput;
 
-    @FindBy(name="register")
+    @FindBy(name = "register")
     private WebElement registerButton;
 
-    @FindBy(id="username")
+    @FindBy(id = "username")
     private WebElement usernameInput;
 
-    @FindBy(id="password")
+    @FindBy(id = "password")
     private WebElement passwordInput;
 
-    @FindBy(name="login")
+    @FindBy(name = "login")
     private WebElement logginbutton;
 
     @FindBy(xpath = "//ul[@class='woocommerce-error']//li")
@@ -37,12 +37,12 @@ public class MyAccountPage {
 
     }
 
-    public LoggedUserPage registerUserValidData (String email, String password){
+    public LoggedUserPage registerUserValidData(String email, String password) {
         registerUser(email, password);
         return new LoggedUserPage(driver);
     }
 
-    public MyAccountPage registerUserInvalidData (String email, String password){
+    public MyAccountPage registerUserInvalidData(String email, String password) {
         registerUser(email, password);
         return this;
     }
@@ -53,12 +53,12 @@ public class MyAccountPage {
         registerButton.click();
     }
 
-    public LoggedUserPage logInValidData (String username, String password) {
-        logIn(username,password);
+    public LoggedUserPage logInValidData(String username, String password) {
+        logIn(username, password);
         return new LoggedUserPage(driver);
     }
 
-    public MyAccountPage logInInvalidData (String username, String password) {
+    public MyAccountPage logInInvalidData(String username, String password) {
         logIn(username, password);
         return this;
     }

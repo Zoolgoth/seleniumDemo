@@ -12,13 +12,13 @@ public class HomePage {
 
     private WebDriver driver;
 
-    public HomePage (WebDriver driver) {
+    public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
-    public MyAccountPage openMyAccountPage () {
-            myAccountLink.click();
-            return new MyAccountPage(driver);
+    public MyAccountPage openMyAccountPage() {
+        myAccountLink.click();
+        return new MyAccountPage(driver);
     }
 }
